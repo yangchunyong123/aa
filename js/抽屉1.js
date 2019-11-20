@@ -1,0 +1,22 @@
+var ctboxs=document.getElementById('ct1');
+var ctbox=ctboxs.getElementsByClassName('ctbox');
+var title=ctboxs.getElementsByClassName('title');
+var titleWidth=36.4;
+var contentWidth=280;
+for(var i=0;i<title.length;i++){
+	title[i].index=i;
+	title[i].onclick=function() {
+		for(var i=0;i<ctbox.length;i++){
+			if(i<=this.index){
+			ctbox[i].style.top=i*titleWidth+'px';
+		}else{
+			ctbox[i].style.top=i*titleWidth+contentWidth+'px';
+		}
+	 }
+	}
+}
+// 点击的序号记为n，则
+// ctbox序号小于等于n的时候
+// ctbox的left值计算公式为序号*titleWidth
+// ctbox序号大于n的时候
+// ctbox的left值计算公式为序号*titleWidth+contentWidth
